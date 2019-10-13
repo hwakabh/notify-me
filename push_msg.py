@@ -22,12 +22,12 @@ handler = WebhookHandler(channel_secret)
 
 @app.route('/callback', methods=['POST'])
 def callback():
+    print('>>> Calllbacked.')
     sig = request.headers['X-Line-Signature']
     req = request.get_data(as_text=True)
-    print('Set request header/body !!')
-    print('signature : {}'.format(sig))
-    print('request body : {}'.format(req))
-    app.logger.info('Request Body : {}'.format(req))
+    print('>>> sig : \n{}'.format(sig))
+    print('>>> req : \n{}'.format(req))
+#     app.logger.info('Request Body : {}'.format(req))
     handler.handle(req, sig)
     return 'OK'
 
@@ -36,17 +36,12 @@ def callback():
 def response_message(event):
         profile = line_bot_api.get_profile(event.source.user_id)
         print(profile)
-        print('Got Profile !!')
+
+        messages = TextSendMessage(text='Hello LINE notifications.')
+        line_bot_api.reply_message(event.reply_token, messages=messages)
 
 
-
-# def main():
-#     messages = TextSendMessage(text="Hello LINE Push notifications.")
-#     line_bot_api.push_message(line_user_id, messages=messages)
- 
 if __name__ == "__main__":
-    print('Starting Flask apps...')
-    # main()
+    print('>>> Starting Flask apps...')
     port = int(os.getenv("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
-    print('Stopping apps.')
