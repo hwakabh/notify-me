@@ -29,6 +29,24 @@ def callback():
     handler.handle(req, sig)
     return 'OK'
 
+@handler.add(MessageEvent, message=TextSendMessage)
+def handle_message(event):
+    print(event.source)
+    if event.message.text == "Get out.":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage("Goodbye."))
+
+        if hasattr(event.source,"group_id"):
+            line_bot_api.leave_group(event.source.group_id)
+
+        if hasattr(event.source,"room_id"):
+            line_bot_api.leave_room(event.source.room_id)
+
+        return
+
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=event.message.text))
+
 
 if __name__ == "__main__":
     print('>>> Starting Flask apps as background process...')
