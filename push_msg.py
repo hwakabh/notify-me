@@ -24,18 +24,19 @@ handler = WebhookHandler(channel_secret)
 def callback():
     sig = request.headers['X-Line-Signature']
     req = request.get_data(as_text=True)
-#    print('Set request header/body !!')
-#    print('signature : {}'.format(sig))
-#    print('request body : {}'.format(req))
+    print('Set request header/body !!')
+    print('signature : {}'.format(sig))
+    print('request body : {}'.format(req))
     app.logger.info('Request Body : {}'.format(req))
     handler.handle(req, sig)
     return 'OK'
+
 
 @handler.add(MessageEvent, message=TextSendMessage)
 def response_message(event):
         profile = line_bot_api.get_profile(event.source.user_id)
         print(profile)
-#        print('Got Profile !!')
+        print('Got Profile !!')
 
 
 
