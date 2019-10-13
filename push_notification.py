@@ -41,11 +41,9 @@ def pushing_messages(text_message):
 def get_message_body(t):
     msg = ''
     candidate_times = [m.get('time') for m in messages.msg]
-    print(candidate_times)
 
     if t.strftime('%H-%M') in candidate_times:
         index = candidate_times.index(t.strftime('%H-%M'))
-        print(index)
         msg = messages.msg[index]['text']
 
     return msg
