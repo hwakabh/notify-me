@@ -1,6 +1,22 @@
 # notify-me
 
-LINEbot for collecting SNS notifications from each API and make push notifications integration.
+- LINEbot reminders for daily basis using Python.
+  - Using `LINE Messaging API` and implementation of Push notifications
+
+- This programs intends to remind some tasks in daily basis, such as:  
+  - Times of dog walking in morning / afternoon / night
+  - Times when you should take some medicine
+  - ...etc
+
+***
+
+## Environments
+
+```text
+Python : 3.6.4
+pyenv : 1.2.13
+line-bot-sdk : 1.14.0
+```
 
 ***
 
