@@ -11,7 +11,6 @@ from linebot.models import MessageEvent
 # Set credentilas securely
 channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
 channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
-line_user_id = os.getenv('LINE_USER_ID', None)
 
 app = Flask(__name__)
 
@@ -27,18 +26,8 @@ def callback():
     req = request.get_data(as_text=True)
     print('>>> sig : \n{}'.format(sig))
     print('>>> req : \n{}'.format(req))
-#     app.logger.info('Request Body : {}'.format(req))
     handler.handle(req, sig)
     return 'OK'
-
-
-@handler.add(MessageEvent, message=TextSendMessage)
-def response_message(event):
-        profile = line_bot_api.get_profile(event.source.user_id)
-        print(profile)
-
-        messages = TextSendMessage(text='Hello LINE notifications.')
-        line_bot_api.reply_message(event.reply_token, messages=messages)
 
 
 if __name__ == "__main__":
