@@ -11,7 +11,7 @@ line_user_id = os.getenv('LINE_USER_ID', None)
 line_bot_api = LineBotApi(channel_access_token)
  
 def main():
-    messages = TextSendMessage(text="Hello Python from LINE bot.")
+    messages = TextSendMessage(text="Hello LINE Push notifications.")
     line_bot_api.push_message(line_user_id, messages=messages)
  
 if __name__ == "__main__":
