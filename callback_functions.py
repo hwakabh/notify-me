@@ -6,6 +6,7 @@ from flask import request
 from linebot import LineBotApi
 from linebot import WebhookHandler
 from linebot.models import TextSendMessage
+from linebot.models import TextMessage
 from linebot.models import MessageEvent
  
 # Set credentilas securely
@@ -29,7 +30,8 @@ def callback():
     handler.handle(req, sig)
     return 'OK'
 
-@handler.add(MessageEvent, message=TextSendMessage)
+
+@handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     print(event.source)
     if event.message.text == "Get out.":
