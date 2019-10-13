@@ -31,6 +31,6 @@ def callback():
 
 
 if __name__ == "__main__":
-    print('>>> Starting Flask apps...')
+    print('>>> Starting Flask apps as background process...')
     port = int(os.getenv("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
