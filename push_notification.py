@@ -27,7 +27,7 @@ RAW_DATA = {
 }
 
 DATA = urllib.parse.urlencode(RAW_DATA).encode('utf-8')
-req = urllib.request.Requst(
+req = urllib.request.Request(
     url=URL,
     headers=HEADERS,
     data=DATA
