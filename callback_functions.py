@@ -8,7 +8,8 @@ from linebot import WebhookHandler
 from linebot.models import TextSendMessage
 from linebot.models import TextMessage
 from linebot.models import MessageEvent
- 
+
+
 # Set credentilas securely
 channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
 channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
@@ -27,7 +28,10 @@ def callback():
     req = request.get_data(as_text=True)
     print('>>> sig : \n{}'.format(sig))
     print('>>> req : \n{}'.format(req))
-    handler.handle(req, sig)
+    try:
+        handler.handle(req, sig)
+    except:
+        pass
     return 'OK'
 
 
