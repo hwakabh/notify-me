@@ -33,7 +33,7 @@ req = urllib.request.Request(
     data=DATA
 )
 
-with urllib.request.urlopne(req) as res:
+with urllib.request.urlopen(req) as res:
     body = res.read()
 
 print(json.loads(body.decode('utf-8')))
