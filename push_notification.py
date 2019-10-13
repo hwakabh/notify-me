@@ -8,6 +8,7 @@ LINE_USER_ID = os.getenv('LINE_USER_ID', None)
 
 URL = 'https://api.line.me/v2/bot/message/push'
 HEADERS = {
+    'User-Agent': 'Mozilla',
     'Content-Type': 'application/json',
     'Authorization': 'Bearer {}'.format(LINE_CHANNEL_ACCESS_TOKEN)
 }
