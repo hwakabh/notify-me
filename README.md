@@ -1,4 +1,4 @@
-# notify-me
+# notify-me-daily
 
 - LINEbot reminders for daily basis using Python.
   - Using `LINE Messaging API` and implementation of Push notifications
