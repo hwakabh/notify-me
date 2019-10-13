@@ -47,5 +47,5 @@ if __name__ == "__main__":
     print('Starting Flask apps...')
     # main()
     port = int(os.getenv("PORT", 5000))
-    app.run(host='localhost', port=port)
+    app.run(host='0.0.0.0', port=port)
     print('Stopping apps.')
