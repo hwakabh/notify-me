@@ -7,7 +7,7 @@ msg = [
         'text': 'Good Morning.\n Time to go dog-walking.'
     },
     {
-        'time': '20-00',
+        'time': '20-30',
         'text': 'Good Evening.\n Time to go dog-walking.'
     },
     {
@@ -19,7 +19,7 @@ msg = [
         'text': 'It is time to take afternoon medicine.'
     },
     {
-        'time': '01-55',
+        'time': '22-00',
         'text': 'Do not forget to take evening medicine ??\n Good night and have a nice dream.'
     }
 ]
