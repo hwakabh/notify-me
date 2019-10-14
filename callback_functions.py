@@ -42,11 +42,11 @@ def handle_message(event):
 
         if hasattr(event.source,'group_id'):
             os.environ['LINE_GROUP_ID'] = event.source.group_id
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(event.source.group_id)
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(event.source.group_id))
 
         if hasattr(event.source,'room_id'):
             os.environ['LINE_ROOM_ID'] = event.source.room_id
-            line_bot_api.reply_message(event.reply_token, TextSendMessage(event.source.room_id)
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(event.source.room_id))
 
         return
 
