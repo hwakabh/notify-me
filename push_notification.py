@@ -62,7 +62,7 @@ while True:
     # Default target of push notification is developers user_id
     TARGET_ID = LINE_USER_ID
     if os.path.exists('./.ids'):
-        with open('./.ids') as f:
+        with open('./.ids', 'r') as f:
             TARGET_ID = f.read()
 
     if push_text == '':
