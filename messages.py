@@ -4,22 +4,22 @@
 msg = [
     {
         'time': '08-00',
-        'text': 'Good Morning.\n Time to go dog-walking.'
+        'text': 'おはよう、08:00 です。\n朝の散歩の時間だよー。'
     },
     {
-        'time': '21-41',
-        'text': 'Good Evening.\n Time to go dog-walking.'
+        'time': '20-00',
+        'text': 'おつかれさま、20:00 です。\n夕方の散歩の時間だよー。'
     },
     {
-        'time': '21-42',
-        'text': 'It is time to take morning medicine.'
+        'time': '08-30',
+        'text': 'おはよう。朝のおくすりの時間だよ。'
     },
     {
-        'time': '21-43',
-        'text': 'It is time to take afternoon medicine.'
+        'time': '13-00',
+        'text': 'おつかれさま！お昼のおくすりの時間だよ。'
     },
     {
         'time': '22-00',
-        'text': 'Do not forget to take evening medicine ??\n Good night and have a nice dream.'
+        'text': '寝る前のおくすりの時間だよー。\nおやすみなさい、いい夢見てね。'
     }
 ]
