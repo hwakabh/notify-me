@@ -64,6 +64,7 @@ while True:
     if os.path.exists('./.ids'):
         with open('./.ids', 'r') as f:
             TARGET_ID = f.read()
+            print(TARGET_ID)
 
     if push_text == '':
         print('>>> Current Time : {} | It is not time to remind. nothing to do.'.format(now))

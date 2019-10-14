@@ -40,17 +40,17 @@ def handle_message(event):
     if event.message.text == 'debug':
         print(event.source)
         line_bot_api.reply_message(event.reply_token, TextSendMessage('Okay, here are each IDs.'))
+        with open('./.ids', 'w') as f:
+            f.write(event.source['groupId'])
 
-        if hasattr(event.source,'group_id'):
-            print('GroupId Exists : {0}'.format(event.source['groupId']))
-            print(type(event.source['groupId']))
-            with open('./.ids', 'w') as f:
-                f.write(event.source['groupId'])
+        # if hasattr(event.source,'group_id'):
+        #     print('GroupId Exists : {0}'.format(event.source['groupId']))
+        #     print(type(event.source['groupId']))
 
-        if hasattr(event.source,'room_id'):
-            print('RoomId Exists " {0}'.format(event.source['roomId']))
-            with open('./.ids', 'w') as f:
-                f.write(event.source['roomId'])
+        # if hasattr(event.source,'room_id'):
+        #     print('RoomId Exists " {0}'.format(event.source['roomId']))
+        #     with open('./.ids', 'w') as f:
+        #         f.write(event.source['roomId'])
 
         return
 
