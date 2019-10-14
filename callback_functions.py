@@ -40,8 +40,8 @@ def handle_message(event):
     if event.message.text == 'debug':
         print(event.source.group_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage('Okay, here are each IDs.'))
-        with open('./.ids', 'w') as f:
-            f.write(str(event.source.group_id))
+        import push_notification
+        push_notification.TARGET_ID = str(event.source.group_id)
 
         # if hasattr(event.source,'group_id'):
         #     print('GroupId Exists : {0}'.format(event.source['groupId']))
