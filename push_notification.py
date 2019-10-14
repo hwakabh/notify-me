@@ -61,8 +61,8 @@ while True:
     push_text = get_message_body(t=now)
     # Default target of push notification is developers user_id
     TARGET_ID = LINE_USER_ID
-    import callback_function
-    if callback_function.GROUP_ID != None:
+    import callback_functions
+    if callback_functions.GROUP_ID != None:
         TARGET_ID = GROUP_ID
 
     if push_text == '':
