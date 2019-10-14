@@ -38,10 +38,10 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.message.text == 'debug':
-        print(event.source)
+        print(event.source.group_id)
         line_bot_api.reply_message(event.reply_token, TextSendMessage('Okay, here are each IDs.'))
         with open('./.ids', 'w') as f:
-            f.write(event.source['groupId'])
+            f.write(str(event.source['groupId']))
 
         # if hasattr(event.source,'group_id'):
         #     print('GroupId Exists : {0}'.format(event.source['groupId']))
