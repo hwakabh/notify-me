@@ -61,9 +61,9 @@ while True:
     push_text = get_message_body(t=now)
     # Default target of push notification is developers user_id
     TARGET_ID = LINE_USER_ID
-    import callback_functions
-    if callback_functions.GROUP_ID != None:
-        TARGET_ID = GROUP_ID
+    if os.path.exists('./.ids'):
+        with open('./.ids') as f:
+            TARGET_ID = f.read()
 
     if push_text == '':
         print('>>> Current Time : {} | It is not time to remind. nothing to do.'.format(now))

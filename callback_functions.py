@@ -44,13 +44,13 @@ def handle_message(event):
         if hasattr(event.source,'group_id'):
             print('GroupId Exists : {0}'.format(event.source['groupId']))
             print(type(event.source['groupId']))
-            global GROUP_ID
-            GROUP_ID = event.source['groupId']
+            with open('./.ids', 'w') as f:
+                f.write(event.source['groupId'])
 
         if hasattr(event.source,'room_id'):
             print('RoomId Exists " {0}'.format(event.source['roomId']))
-            global ROOM_ID
-            ROOM_ID = event.source['roomId']
+            with open('./.ids', 'w') as f:
+                f.write(event.source['roomId'])
 
         return
 
