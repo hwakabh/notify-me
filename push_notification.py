@@ -2,7 +2,9 @@ import urllib.request
 import urllib.parse
 import os
 import json
-import datetime
+from datetime import datetime
+from datetime import timedelta
+from datetime import timezone
 import time
 
 import messages
@@ -52,7 +54,8 @@ def get_message_body(t):
 while True:
     print('Starting closed loop, checking time...')
     time.sleep(RECONCILATION_PERIOD_SEC)
-    now = datetime.datetime.now()
+    tz = timezone(timedelta(hours=9), 'JST')
+    now = datetime.now(tz)
 
     push_text = get_message_body(t=now)
     if push_text == '':
