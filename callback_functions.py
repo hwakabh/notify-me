@@ -42,18 +42,21 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage('Okay, here are each IDs.'))
 
         if hasattr(event.source,'group_id'):
-            print('GroupId Exists.')
-            os.environ['LINE_GROUP_ID'] = event.source['groupId']
+            print('GroupId Exists : {0}'.format(event.source['groupId']))
+            print(type(event.source['groupId']))
+            global GROUP_ID
+            GROUP_ID = event.source['groupId']
 
         if hasattr(event.source,'room_id'):
-            print('RoomId Exists.')
-            os.environ['LINE_ROOM_ID'] = event.source['roomId']
+            print('RoomId Exists " {0}'.format(event.source['roomId']))
+            global ROOM_ID
+            ROOM_ID = event.source['roomId']
 
         return
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(event.source)
+        TextSendMessage(str(event.source))
         # TextSendMessage(text=event.message.text))
     )
 
