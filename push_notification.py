@@ -1,5 +1,4 @@
 import urllib.request
-import urllib.parse
 import os
 import json
 from datetime import datetime
@@ -54,8 +53,10 @@ def get_message_body(t):
 while True:
     print('Starting closed loop, checking time...')
     time.sleep(RECONCILATION_PERIOD_SEC)
-    tz = timezone(timedelta(hours=9), 'JST')
-    now = datetime.now(tz)
+    now = datetime.now()
+    if os.getenv('TZ') != 'Asia/Tokyo':
+        tz = timezone(timedelta(hours=9), 'JST')
+        now = datetime.now(tz)
 
     push_text = get_message_body(t=now)
     if push_text == '':
