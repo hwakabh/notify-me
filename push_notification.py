@@ -11,8 +11,6 @@ import messages
 # Configurations for pushing to LINE Messaging API
 LINE_CHANNEL_ACCESS_TOKEN = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
 LINE_USER_ID = os.getenv('LINE_USER_ID', None)
-global TARGET_ID
-TARGET_ID = LINE_USER_ID
 
 URL = 'https://api.line.me/v2/bot/message/push'
 HEADERS = {
@@ -61,6 +59,9 @@ if __name__ == '__main__':
             now = datetime.now(tz)
 
         push_text = get_message_body(t=now)
+        TARGET_ID = LINE_USER_ID
+        if os.getenv('LINE_GROUP_ID') != None:
+            TARGET_ID = os.getenv('LINE_GROUP_ID', None)
 
         if push_text == '':
             print('>>> Current Time : {} | It is not time to remind. nothing to do.'.format(now))

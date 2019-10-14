@@ -35,30 +35,24 @@ def callback():
     return 'OK'
 
 
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    if event.message.text == 'debug':
-        print(event.source.group_id)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage('Okay, here are each IDs.'))
-        import push_notification
-        push_notification.TARGET_ID = str(event.source.group_id)
+# @handler.add(MessageEvent, message=TextMessage)
+# def handle_message(event):
+#     if event.message.text == 'debug':
+#         # print(event.source.group_id)
+#         line_bot_api.reply_message(event.reply_token, TextSendMessage('Okay, here are each IDs.'))
 
-        # if hasattr(event.source,'group_id'):
-        #     print('GroupId Exists : {0}'.format(event.source['groupId']))
-        #     print(type(event.source['groupId']))
+#         if hasattr(event.source,'group_id'):
+#             print('GroupId Exists : {0}'.format(event.source['groupId']))
 
-        # if hasattr(event.source,'room_id'):
-        #     print('RoomId Exists " {0}'.format(event.source['roomId']))
-        #     with open('./.ids', 'w') as f:
-        #         f.write(event.source['roomId'])
+#         if hasattr(event.source,'room_id'):
+#             print('RoomId Exists " {0}'.format(event.source['roomId']))
 
-        return
+#         return
 
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(str(event.source))
-        # TextSendMessage(text=event.message.text))
-    )
+#     line_bot_api.reply_message(
+#         event.reply_token,
+#         TextSendMessage(text=event.message.text))
+#     )
 
 
 if __name__ == "__main__":
