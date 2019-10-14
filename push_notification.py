@@ -59,13 +59,19 @@ while True:
         now = datetime.now(tz)
 
     push_text = get_message_body(t=now)
+    # Default target of push notification is developers user_id
+    TARGET_ID = LINE_USER_ID
+    GROUP_ID = os.getenv('LINE_GROUP_ID', None)
+    if GROUP_ID != None:
+        TARGET_ID = GROUP_ID
+
     if push_text == '':
         print('>>> Current Time : {} | It is not time to remind. nothing to do.'.format(now))
         continue
     else:
         print('>>> Current Time : {} | Time to remind. Run push-notification.'.format(now))
         push_data = {
-            'to': LINE_USER_ID,
+            'to': TARGET_ID,
             'messages': [
                 {
                     'type': 'text',

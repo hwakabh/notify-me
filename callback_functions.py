@@ -37,21 +37,23 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    print(event.source)
-    if event.message.text == "Get out.":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage("Goodbye."))
+    if event.message.text == 'debug':
+        line_bot_api.reply_message(event.reply_token, TextSendMessage('Okay, here are each IDs.'))
 
-        if hasattr(event.source,"group_id"):
-            line_bot_api.leave_group(event.source.group_id)
+        if hasattr(event.source,'group_id'):
+            os.environ['LINE_GROUP_ID'] = event.source.group_id
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(event.source.group_id)
 
-        if hasattr(event.source,"room_id"):
-            line_bot_api.leave_room(event.source.room_id)
+        if hasattr(event.source,'room_id'):
+            os.environ['LINE_ROOM_ID'] = event.source.room_id
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(event.source.room_id)
 
         return
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(text='Hope this help, thanks.'))
+        # TextSendMessage(text=event.message.text))
 
 
 if __name__ == "__main__":
