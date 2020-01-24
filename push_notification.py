@@ -49,6 +49,7 @@ def get_message_body(t):
 
     return msg
 
+
 if __name__ == '__main__':
     while True:
         print('Starting closed loop, checking time...')
@@ -78,4 +79,3 @@ if __name__ == '__main__':
                 ]
             }
             pushing_messages(push_data)
-
